@@ -19,11 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yrI-nu-9e5">
-                                <rect key="frame" x="16" y="40" width="343" height="460.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yrI-nu-9e5">
+                                <rect key="frame" x="16" y="40" width="343" height="497.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUh-Ys-ueq">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUh-Ys-ueq">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -34,26 +34,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuq-Jq-mid">
-                                        <rect key="frame" x="0.0" y="90.5" width="151" height="30"/>
-                                        <state key="normal" title="Set Default Label Text"/>
-                                        <connections>
-                                            <action selector="setDefaultLabelTextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pv5-9n-f9K"/>
-                                        </connections>
-                                    </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-3c-SMg">
-                                        <rect key="frame" x="0.0" y="140.5" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="90.5" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PcX-3c-SMg" secondAttribute="height" multiplier="1:1" id="6bc-VO-bMm"/>
+                                            <constraint firstAttribute="width" secondItem="PcX-3c-SMg" secondAttribute="height" multiplier="1:1" id="y5Y-DW-H5p"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="xjL-P6-cZy" appends="YES" id="zR8-gG-vpK"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JEZ-D2-KZg" customClass="RatingControl" customModule="LIstFood" customModuleProvider="target">
+                                        <rect key="frame" x="45.5" y="453.5" width="252" height="44"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="tuq-Jq-mid" firstAttribute="top" secondItem="Faw-Zf-MTG" secondAttribute="bottom" constant="20" id="J26-IT-d86"/>
+                                    <constraint firstAttribute="trailing" secondItem="HUh-Ys-ueq" secondAttribute="trailing" id="Lwp-zJ-fmU"/>
                                     <constraint firstItem="Faw-Zf-MTG" firstAttribute="leading" secondItem="yrI-nu-9e5" secondAttribute="leading" id="Pvu-30-yq1"/>
                                     <constraint firstAttribute="trailing" secondItem="Faw-Zf-MTG" secondAttribute="trailing" id="n51-qU-IBh"/>
                                     <constraint firstItem="Faw-Zf-MTG" firstAttribute="top" secondItem="HUh-Ys-ueq" secondAttribute="bottom" constant="20" id="tf6-0s-daV"/>
@@ -72,6 +69,7 @@
                         <outlet property="mealNameLabel" destination="HUh-Ys-ueq" id="kST-7S-kHW"/>
                         <outlet property="mealNameTextField" destination="Faw-Zf-MTG" id="PLm-CW-3NP"/>
                         <outlet property="photoImageView" destination="PcX-3c-SMg" id="FBy-G4-RQ0"/>
+                        <outlet property="ratingControl" destination="JEZ-D2-KZg" id="rZj-zs-xeQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,6 +83,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="320" height="320"/>
+        <image name="Image" width="540" height="540"/>
     </resources>
 </document>

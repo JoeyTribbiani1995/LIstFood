@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerControllerDelegate , UINavigationControllerDelegate{
 
+    @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var mealNameTextField: UITextField!
@@ -22,10 +23,6 @@ class ViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func setDefaultLabelTextButtonTapped(_ sender: UIButton) {
-        mealNameLabel.text = "Default Text"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
