@@ -124,13 +124,16 @@
                                 <rect key="frame" x="16" y="103" width="343" height="460"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Meal Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Faw-Zf-MTG">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="textEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="xYG-mW-8q6"/>
+                                        </connections>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-3c-SMg">
-                                        <rect key="frame" x="1.5" y="50" width="340" height="340"/>
+                                        <rect key="frame" x="0.0" y="53" width="343" height="343"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PcX-3c-SMg" secondAttribute="height" multiplier="1:1" id="6bc-VO-bMm"/>
@@ -140,7 +143,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JEZ-D2-KZg" customClass="RatingControl" customModule="LIstFood" customModuleProvider="target">
-                                        <rect key="frame" x="45.5" y="410" width="252" height="50"/>
+                                        <rect key="frame" x="45.5" y="416" width="252" height="44"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -177,6 +180,7 @@
                         <outlet property="mealNameTextField" destination="Faw-Zf-MTG" id="PLm-CW-3NP"/>
                         <outlet property="photoImageView" destination="PcX-3c-SMg" id="FBy-G4-RQ0"/>
                         <outlet property="ratingControl" destination="JEZ-D2-KZg" id="rZj-zs-xeQ"/>
+                        <outlet property="saveBarButtonItem" destination="4KU-xN-9im" id="9Xt-Oo-XSA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

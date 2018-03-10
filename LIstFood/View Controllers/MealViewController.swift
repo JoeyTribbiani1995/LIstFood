@@ -13,6 +13,7 @@ class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerCo
     
     var meal : Meal?
     
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var mealNameTextField: UITextField!
@@ -23,6 +24,8 @@ class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerCo
         mealNameTextField.delegate = self
         
         updateView()
+        
+        updateStatusSaveButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,6 +96,15 @@ class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerCo
        meal = Meal(name: mealName, photo: photo, rating: rating)
     }
     
+    @IBAction func textEditingChanged(_ sender : UITextField){
+        updateStatusSaveButton()
+    }
+    
+    func updateStatusSaveButton(){
+        let mealName = mealNameTextField.text ?? ""
+        saveBarButtonItem.isEnabled = !mealName.isEmpty 
+        
+    }
     
 }
 
