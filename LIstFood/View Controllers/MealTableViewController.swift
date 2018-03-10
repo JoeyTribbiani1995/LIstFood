@@ -75,6 +75,26 @@ class MealTableViewController: UITableViewController {
         return .delete
     }
     
+    @IBAction func unwindToTableView(_ unwindSeque : UIStoryboardSegue){
+        guard unwindSeque.identifier == "saveUnwind" else { return }
+        
+        let sourceVC = unwindSeque.source as! MealViewController
+        
+        if let meal = sourceVC.meal {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                
+                mealList[selectedIndexPath.row] = meal
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }else {
+                let newIndexPath = IndexPath(row: mealList.count, section: 0)
+                
+                mealList.append(meal)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+        
+    }
+    
 
     
 }

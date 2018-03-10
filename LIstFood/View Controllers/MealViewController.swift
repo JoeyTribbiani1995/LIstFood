@@ -71,11 +71,26 @@ class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerCo
             mealNameTextField.text = meal.name
             ratingControl.rating = meal.rating
             if let photo = meal.photo {
-                photoImageView.image = UIImage(named: photo)
+                photoImageView.image = photo
             }else{
                 photoImageView.image = UIImage(named: "image")
             }
         }
+    }
+    @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem) {
+        meal = nil
+        
+        performSegue(withIdentifier: "unwindToTableView", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let mealName = mealNameTextField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+       meal = Meal(name: mealName, photo: photo, rating: rating)
     }
     
     

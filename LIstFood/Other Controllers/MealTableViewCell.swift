@@ -24,7 +24,7 @@ class MealTableViewCell: UITableViewCell {
     
     func updateCellView(with meal : Meal) {
         if let photo = meal.photo {
-            photoImageView.image = UIImage(named: photo)
+            photoImageView.image = photo
         }else {
             photoImageView.image = UIImage(named: "image")
         }
