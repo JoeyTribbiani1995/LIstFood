@@ -15,7 +15,6 @@ class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerCo
     
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var mealNameTextField: UITextField!
     
     override func viewDidLoad() {
@@ -69,7 +68,7 @@ class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerCo
     
     func updateView(){
         if let meal = meal {
-            mealNameLabel.text = meal.name
+            mealNameTextField.text = meal.name
             ratingControl.rating = meal.rating
             if let photo = meal.photo {
                 photoImageView.image = UIImage(named: photo)

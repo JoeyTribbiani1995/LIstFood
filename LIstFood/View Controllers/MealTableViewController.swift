@@ -12,8 +12,11 @@ class MealTableViewController: UITableViewController {
 
     var mealList : [Meal] = []
     
+    @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       navigationItem.leftBarButtonItem = editBarButtonItem
         
        mealList = Meal.loadSampleData()
     }
@@ -57,8 +60,20 @@ class MealTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func editBarButtonItemTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
     
-
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let moveMeal = mealList.remove(at: fromIndexPath.row)
+        mealList.insert(moveMeal, at: to.row)
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
     
 
     
