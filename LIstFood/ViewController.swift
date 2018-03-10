@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController ,UITextFieldDelegate {
+class ViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerControllerDelegate , UINavigationControllerDelegate{
 
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var mealNameTextField: UITextField!
     override func viewDidLoad() {
@@ -36,6 +37,32 @@ class ViewController: UIViewController ,UITextFieldDelegate {
         mealNameLabel.text = textField.text
     }
     
+    @IBAction func selectImagePhotoFromLibrary(_ sender: UITapGestureRecognizer) {
+        mealNameTextField.resignFirstResponder()
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.sourceType = .photoLibrary
+        
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let selectImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("error \(info)")
+        }
+        
+        photoImageView.image = selectImage
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
     
     
 }
