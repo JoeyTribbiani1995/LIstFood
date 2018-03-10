@@ -23,4 +23,12 @@ class Meal {
         self.rating = rating
     }
     
+    static func loadSampleData() -> [Meal] {
+        let meal1 = Meal(name: "pizza", photo: "Pizza", rating: 4)
+        let meal2 = Meal(name: "chicken", photo: "Chicken", rating: 3)
+        let meal3 = Meal(name: "salad", photo: "Salad", rating: 2)
+        
+        return [meal1!,meal2!,meal3!]
+    }
+    
 }

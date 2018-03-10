@@ -8,16 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerControllerDelegate , UINavigationControllerDelegate{
+class MealViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerControllerDelegate , UINavigationControllerDelegate{
 
+    
+    var meal : Meal?
+    
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var mealNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         mealNameTextField.delegate = self
+        
+        updateView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +37,7 @@ class ViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerContro
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        mealNameLabel.text = textField.text
+        
     }
     
     @IBAction func selectImagePhotoFromLibrary(_ sender: UITapGestureRecognizer) {
@@ -59,6 +65,18 @@ class ViewController: UIViewController ,UITextFieldDelegate ,UIImagePickerContro
         
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    func updateView(){
+        if let meal = meal {
+            mealNameLabel.text = meal.name
+            ratingControl.rating = meal.rating
+            if let photo = meal.photo {
+                photoImageView.image = UIImage(named: photo)
+            }else{
+                photoImageView.image = UIImage(named: "image")
+            }
+        }
     }
     
     
