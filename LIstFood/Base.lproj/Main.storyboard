@@ -77,6 +77,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="lAW-eW-md7">
                         <barButtonItem key="backBarButtonItem" title="Back" id="THo-Af-DAZ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="CcV-Sc-SfZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c6X-x7-kGY">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="AddMeal" id="1KH-NB-bPg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9B-Oh-w7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,4 +180,7 @@
     <resources>
         <image name="Image" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="1KH-NB-bPg"/>
+    </inferredMetricsTieBreakers>
 </document>

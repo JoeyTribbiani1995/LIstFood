@@ -43,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D77A17582053DE1C00D6E2D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D72C1C7C2053996900CDDD8E /* Meal.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D77A17592053DE2A00D6E2D0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7F1E8BA20525BC200F8EE4C /* MealViewController.swift */,
+				D78A10432053C8CF0033A437 /* MealTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D77A175A2053DE4500D6E2D0 /* Other Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D76F889820536AE300B996F4 /* RatingControl.swift */,
+				D78A10452053C9DD0033A437 /* MealTableViewCell.swift */,
+			);
+			path = "Other Controllers";
+			sourceTree = "<group>";
+		};
 		D7F1E8AC20525BC200F8EE4C = {
 			isa = PBXGroup;
 			children = (
@@ -63,15 +89,13 @@
 			isa = PBXGroup;
 			children = (
 				D7F1E8B820525BC200F8EE4C /* AppDelegate.swift */,
-				D7F1E8BA20525BC200F8EE4C /* MealViewController.swift */,
-				D72C1C7C2053996900CDDD8E /* Meal.swift */,
 				D7F1E8BC20525BC200F8EE4C /* Main.storyboard */,
-				D78A10432053C8CF0033A437 /* MealTableViewController.swift */,
-				D76F889820536AE300B996F4 /* RatingControl.swift */,
+				D77A17592053DE2A00D6E2D0 /* View Controllers */,
+				D77A175A2053DE4500D6E2D0 /* Other Controllers */,
+				D77A17582053DE1C00D6E2D0 /* Model */,
 				D7F1E8BF20525BC200F8EE4C /* Assets.xcassets */,
 				D7F1E8C120525BC200F8EE4C /* LaunchScreen.storyboard */,
 				D7F1E8C420525BC200F8EE4C /* Info.plist */,
-				D78A10452053C9DD0033A437 /* MealTableViewCell.swift */,
 			);
 			path = LIstFood;
 			sourceTree = "<group>";
