@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable class RatingControl: UIStackView {
 
     
+    
     private var ratingButtons = [UIButton]()
     
     var rating = 0 {
@@ -54,7 +55,6 @@ import UIKit
         }else {
             rating = selectRating
         }
-        
     }
     
     private func setupButton(){

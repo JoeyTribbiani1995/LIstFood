@@ -65,7 +65,7 @@
                                 <connections>
                                     <outlet property="mealNameLabel" destination="VbV-30-xGK" id="rX9-xY-azr"/>
                                     <outlet property="photoImageView" destination="cKC-Dv-8D9" id="ACg-I6-ias"/>
-                                    <outlet property="ratingControl" destination="Jc6-vF-DPa" id="7i5-uj-1v8"/>
+                                    <outlet property="ratingControl" destination="Jc6-vF-DPa" id="cJs-CA-T4O"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="MealDetail" id="7EJ-ZW-Tdx"/>
                                 </connections>
                             </tableViewCell>
@@ -196,7 +196,6 @@
         <!--Navigation Controller-->
         <scene sceneID="NKT-uU-gLv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eVn-B9-Zjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zyK-Ms-GxE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XoY-0H-9fO">
@@ -208,6 +207,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6tf-5O-6Zp"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVn-B9-Zjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2" y="436"/>
         </scene>
@@ -216,6 +216,6 @@
         <image name="Image" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6tf-5O-6Zp"/>
+        <segue reference="7EJ-ZW-Tdx"/>
     </inferredMetricsTieBreakers>
 </document>

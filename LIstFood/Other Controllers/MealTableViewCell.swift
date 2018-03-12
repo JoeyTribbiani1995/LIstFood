@@ -23,6 +23,7 @@ class MealTableViewCell: UITableViewCell {
     }
     
     func updateCellView(with meal : Meal) {
+    
         if let photo = meal.photo {
             photoImageView.image = photo
         }else {
@@ -31,6 +32,7 @@ class MealTableViewCell: UITableViewCell {
         
         mealNameLabel.text = meal.name
         ratingControl.rating = meal.rating
+        
     }
 
 }

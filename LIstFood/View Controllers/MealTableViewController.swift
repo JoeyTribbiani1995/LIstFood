@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import os.log
 
 class MealTableViewController: UITableViewController {
 
     var mealList : [Meal] = []
     
     @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
        navigationItem.leftBarButtonItem = editBarButtonItem
         
-       mealList = Meal.loadSampleData()
+        if let saveMealList = loadFromFile() {
+            mealList += saveMealList
+        }else {
+            mealList = Meal.loadSampleData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,9 +43,8 @@ class MealTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealIdentifier", for: indexPath) as! MealTableViewCell
 
         let meal = mealList[indexPath.row]
-        
         cell.updateCellView(with: meal)
-
+        saveToFile()
         return cell
     }
     
@@ -55,6 +60,7 @@ class MealTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             mealList.remove(at: indexPath.row)
+            saveToFile()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
         }
@@ -68,6 +74,7 @@ class MealTableViewController: UITableViewController {
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let moveMeal = mealList.remove(at: fromIndexPath.row)
         mealList.insert(moveMeal, at: to.row)
+        saveToFile()
         tableView.reloadData()
     }
     
@@ -91,9 +98,27 @@ class MealTableViewController: UITableViewController {
                 mealList.append(meal)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            saveToFile()
         }
         
     }
+    
+    
+  func saveToFile(){
+        let isSuccessFulSave = NSKeyedArchiver.archiveRootObject(mealList, toFile: Meal.archieveURL.path)
+        
+        if isSuccessFulSave{
+            os_log("meal list successfully saved",log: OSLog.default,type :.debug)
+        }else {
+            os_log("failed to save meal list ...", log: OSLog.default,type : .error)
+        }
+    }
+    
+   func loadFromFile() -> [Meal]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.archieveURL.path) as? [Meal]
+    }
+    
+   
     
 
     
